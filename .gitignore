@@ -86,4 +86,7 @@ __pycache__/
 local_settings.py
 
 
-db.sqlite3
+backend/db.sqlite3
+
+.env
+.vscode
