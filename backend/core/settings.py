@@ -14,17 +14,6 @@ import dj_database_url
 
 from pathlib import Path
 
-# importa la libreria de variables de entorno
-import environ
-
-# Variables de entorno
-env = environ.Env()
-environ.Env.read_env()
-
-
-
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -136,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "es-co"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "America/Bogota"
 
 USE_I18N = True
 
