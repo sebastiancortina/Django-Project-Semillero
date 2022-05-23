@@ -14,6 +14,7 @@ class Docente(models.Model):
     c_emergencia = models.CharField(max_length=100)
     n_emergencia = PhoneNumberField(null=False, blank=False)
 
+
     def __str__(self):
         return self.n_identificacion
 
@@ -26,9 +27,7 @@ class Semillero(models.Model):
     investigacion_asociado = models.CharField(max_length=250)
     tematica = models.CharField(max_length=250)
     justificacion = models.TextField(max_length=2000)
-    coordinador = models.OneToOneField(
-        Docente, on_delete=models.CASCADE, null=False, blank=True
-    )
+    coordinador = models.OneToOneField( Docente, on_delete=models.CASCADE, null=False, blank=True)
 
     def __str__(self):
         return self.nombre
