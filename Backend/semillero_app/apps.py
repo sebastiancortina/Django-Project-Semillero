@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SemilleroConfig(AppConfig):
+class SemilleroAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'semillero'
+    name = 'semillero_app'
