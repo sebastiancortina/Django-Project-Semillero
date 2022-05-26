@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 LOCAL_APPS = [
     "apps.accounts",
     "apps.semillero_app",
+    "apps.integrantes"
 ]
 
 INSTALLED_APPS = [
