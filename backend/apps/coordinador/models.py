@@ -42,7 +42,6 @@ class Participacion_P_I(models.Model):
 class Proyecto(models.Model):
     proyecto_i = models.IntegerField('Participa en Comité o Grupo de Trabajo', null=False, blank=False, choices=[(1, 'SI'), (2, 'NO')])
     participacion_p_i = models.ForeignKey( Participacion_P_I, on_delete=models.CASCADE, null=False, blank=True)
-    #resultado_d_i = models.ForeignKey( Resultado_D_I, on_delete=models.CASCADE, null=False, blank=True)
 
     def __str__(self):
         return str(self.proyecto_i)
@@ -84,8 +83,8 @@ class Idioma(models.Model):
 
 
 class Coordinador(models.Model):
-    nombre = models.CharField('NOMBRE COMPLETO',max_length=250)
     n_identificacion = models.BigIntegerField('NÚMERO DE IDENTIFICACIÓN',primary_key=True)
+    nombre = models.CharField('NOMBRE COMPLETO',max_length=250)
     f_nacimiento = models.CharField('FECHA DE NACIMIENTO',max_length=100)
     lugar_expedicion = models.CharField('LUGAR DE EXPEDICIÓN ID',max_length=100)
     lugar_nacimiento = models.CharField('LUGAR DE NACIMIENTO',max_length=100)
@@ -98,7 +97,6 @@ class Coordinador(models.Model):
     idioma = models.ForeignKey( Idioma, on_delete=models.CASCADE, null=False, blank=True)
     informacion_academica = models.ForeignKey( Informacion_C, on_delete=models.CASCADE, null=False, blank=True)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE, null=False, blank=True)
-    #experiencia_en_investigacion = 
 
     create_at = models.DateTimeField(auto_now_add=True)
 
