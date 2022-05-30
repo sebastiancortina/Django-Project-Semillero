@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from apps.semillero_app.views import semillero_list, semillero_detalle
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('list/', semillero_list, name=' semillero-list' ),
+    path('<int:id>/', semillero_detalle, name=' semillero-detalle'),
     
 
 ]

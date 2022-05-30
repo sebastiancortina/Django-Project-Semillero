@@ -34,7 +34,7 @@ class Actividad(models.Model):
 
 
 class Actividades_I_I(models.Model):
-    participado = models.BooleanField('Participa en Comité o Grupo de Trabajo ', default=True)
+    participado = models.IntegerField('Participa en Comité o Grupo de Trabajo', null=False, blank=False, choices=[(1, 'SI'), (2, 'NO')])
     actividad = models.ForeignKey( Actividad,  on_delete=models.CASCADE)
 
     def __str__(self):
@@ -81,7 +81,7 @@ class Curso_F(models.Model):
 
 
 class Curso_F_I(models.Model):
-    formacion_i = models.BooleanField('¿Ha realizado cursos de formación de investigación? ', default=True)
+    formacion_i = models.IntegerField('¿Ha realizado cursos de formación de investigación?', null=False, blank=False, choices=[(1, 'SI'), (2, 'NO')])
     curso_f =  models.ForeignKey(Curso_F, on_delete=models.CASCADE)
 
     def __str__(self):

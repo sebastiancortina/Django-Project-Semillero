@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from apps.semillero_app.apis.views import semillero_list, semillero_detalle
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('semillero/', include('apps.semillero_app.apis.urls'))
+    path('list/', semillero_list, name=' semillero-list' ),
+    path('<int:id>/', semillero_detalle, name=' semillero-detalle'),
     
 
 ]
