@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.semillero_app.apis.views import semillero_list, semillero_detalle
+from apps.semillero_app.apis.views import SemilleroListCUA, SemilleroDetalleCUA
 
 urlpatterns = [
-    path('list/', semillero_list, name=' semillero-list' ),
-    path('<int:id>/', semillero_detalle, name=' semillero-detalle'),
+    path('list/', SemilleroListCUA.as_view(), name=' semillero-list' ),
+    path('<int:id>/', SemilleroDetalleCUA.as_view(), name=' semillero-detalle'),
     
 
 ]

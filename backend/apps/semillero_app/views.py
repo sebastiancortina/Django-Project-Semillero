@@ -3,6 +3,8 @@ from apps.semillero_app.models import Semillero
 from django.http import JsonResponse
 
 
+
+"""
 # Create your views here.
 def semillero_list(request):
 
@@ -27,3 +29,4 @@ def semillero_detalle(request, id):
         }
 
     return JsonResponse(data)
+"""
