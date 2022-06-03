@@ -1,32 +1,36 @@
-from ctypes import resize
+# from ctypes import resize
 from rest_framework import serializers
 from apps.semillero_app.models import Semillero
-#from apps.coordinador.models import Coordinador
-#from apps.coordinador.api.serializers import CoordinadorSerializer
-#realiza un mapeo del modelo Semillero 
+from apps.coordinador.api.serializers import CoordinadorSerializer
+
+# from apps.coordinador.models import Coordinador
+# from apps.coordinador.api.serializers import CoordinadorSerializer
+# realiza un mapeo del modelo Semillero
+
 
 class SemilleroSerializer(serializers.ModelSerializer):
-    #semillerolist =CoordinadorSerializer(many=True, read_only=True)
-    class Meta: 
+    # semillerolist =CoordinadorSerializer(many=True, read_only=True)
+    coordinator = CoordinadorSerializer(many=False)
+
+    class Meta:
         model = Semillero
-        fields = '__all__'
+        fields = [
+            "id",
+            "nombre",
+            "facultad",
+            "programa_academico",
+            "investigacion",
+            "investigacion_asociado",
+            "tematica",
+            "justificacion",
+            "coordinator",
+        ]
 
 
-
-
-
-
-
-
-
-
-
-# validador de campos 
+# validador de campos
 # def column_logitud(values):
 #     if len(values) < 2:
 #         raise serializers.ValidationError('La direccion es demaciado corta')
-
-
 
 
 # class SemilleroSerializer(serializers.Serializer):
@@ -49,13 +53,13 @@ class SemilleroSerializer(serializers.ModelSerializer):
 #     # mapemos para actulixar la Data
 #     def update(self, instance, validated_data):
 
-#         instance.nombre =  validated_data.get('nombre', instance.nombre )  
-#         instance.facultad =  validated_data.get('facultad', instance.facultad)  
+#         instance.nombre =  validated_data.get('nombre', instance.nombre )
+#         instance.facultad =  validated_data.get('facultad', instance.facultad)
 #         instance.programa_academico =  validated_data.get('programa_academico', instance.programa_academico)
-#         instance.investigacion =  validated_data.get('investigacion', instance.investigacion)  
+#         instance.investigacion =  validated_data.get('investigacion', instance.investigacion)
 #         instance.investigacion_asociado =  validated_data.get('investigacion_asociado', instance.investigacion)
 #         instance.tematica =  validated_data.get('tematica', instance.tematica)
-#         instance.justificacion =  validated_data.get('justificacion', instance.justificacion) 
+#         instance.justificacion =  validated_data.get('justificacion', instance.justificacion)
 #         instance.save()
 
-#         return instance 
+#         return instance
