@@ -14,7 +14,7 @@ from django.db import models
 # class Actividad_institucional(models.Model):
 #     participacion_c = models.IntegerField('Participa en Comité o Grupo de Trabajo', null=False, blank=False, choices=[(1, 'SI'), (2, 'NO')])
 #     actividad = models.ForeignKey( Actividad_i, on_delete=models.CASCADE, null=False, blank=True)
-    
+
 #     def __str__(self):
 #         return str(self.participacion_c)
 
@@ -70,7 +70,7 @@ from django.db import models
 # class Informacion_C(models.Model):
 #     nivel = models.IntegerField('Indique el Nivel Alcanzado', null=False, blank=False, choices=[(1, 'BÁSICO'), (2, 'INTERMEDIO'), (3, 'AVANZADO')])
 #     information = models.TextField('JUSTIFICACIÓN DEL SEMILLERO DE INVESTIGACIÓN', max_length=2000)
-    
+
 #     def __str__(self):
 #         return str(self.nivel)
 
@@ -83,17 +83,19 @@ from django.db import models
 
 
 class Coordinador(models.Model):
-    n_identificacion = models.BigIntegerField('NÚMERO DE IDENTIFICACIÓN',primary_key=True)
-    nombre = models.CharField('NOMBRE COMPLETO',max_length=250)
-    f_nacimiento = models.CharField('FECHA DE NACIMIENTO',max_length=100)
-    lugar_expedicion = models.CharField('LUGAR DE EXPEDICIÓN ID',max_length=100)
-    lugar_nacimiento = models.CharField('LUGAR DE NACIMIENTO',max_length=100)
-    celular = models.BigIntegerField('TELÉFONO/ CELULAR',null=False, blank=False)
+    n_identificacion = models.BigIntegerField(
+        "NÚMERO DE IDENTIFICACIÓN", primary_key=True
+    )
+    nombre = models.CharField("NOMBRE COMPLETO", max_length=250)
+    f_nacimiento = models.CharField("FECHA DE NACIMIENTO", max_length=100)
+    lugar_expedicion = models.CharField("LUGAR DE EXPEDICIÓN ID", max_length=100)
+    lugar_nacimiento = models.CharField("LUGAR DE NACIMIENTO", max_length=100)
+    celular = models.BigIntegerField("TELÉFONO/ CELULAR", null=False, blank=False)
     email = models.EmailField(max_length=200)
-    direcccion = models.CharField('DIRECCIÓN RESIDENCIA',max_length=100)
-    email = models.EmailField('CORREO ELECTRÓNICO',max_length=200)
-    c_emergencia = models.CharField('EN CASO DE EMERGENCIA LLAMAR A',max_length=100)
-    n_emergencia = models.BigIntegerField('NÚMERO DE CONTACTO',null=False, blank=False)
+    direcccion = models.CharField("DIRECCIÓN RESIDENCIA", max_length=100)
+    # email = models.EmailField("CORREO ELECTRÓNICO", max_length=200)
+    c_emergencia = models.CharField("EN CASO DE EMERGENCIA LLAMAR A", max_length=100)
+    n_emergencia = models.BigIntegerField("NÚMERO DE CONTACTO", null=False, blank=False)
     # idioma = models.ForeignKey( Idioma, on_delete=models.CASCADE, null=False, blank=True)
     # informacion_academica = models.ForeignKey( Informacion_C, on_delete=models.CASCADE, null=False, blank=True)
     # curso = models.ForeignKey(Curso, on_delete=models.CASCADE, null=False, blank=True)
@@ -101,4 +103,4 @@ class Coordinador(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.n_identificacion) 
+        return str(self.n_identificacion)
