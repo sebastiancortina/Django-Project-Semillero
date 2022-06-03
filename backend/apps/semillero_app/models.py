@@ -2,7 +2,7 @@
 from zipapp import create_archive
 from django.db import models
 from apps.coordinador.models import Coordinador
-from apps.integrante.models import Integrante
+#from apps.integrante.models import Integrante
 #from phonenumber_field.modelfields import PhoneNumberField
 
 class Semillero(models.Model):
@@ -13,8 +13,7 @@ class Semillero(models.Model):
     investigacion_asociado = models.CharField('LÍNEA Y SUBLÍNEA DE INVESTIGACIÓN ASOCIADOS', max_length=250)
     tematica = models.CharField('TÉMATICA DE ESTUDIO DEL SEMILLERO', max_length=250)
     justificacion = models.TextField('JUSTIFICACIÓN DEL SEMILLERO DE INVESTIGACIÓN', max_length=2000)
-    coordinator = models.ForeignKey(Coordinador, on_delete=models.CASCADE,  null=True, blank=True)
-    integrante = models.ForeignKey(Integrante, on_delete=models.CASCADE,  null=True, blank=True)
+    coordinator = models.ForeignKey(Coordinador, on_delete=models.CASCADE, related_name="semillerolist")
 
     def __str__(self):
         return self.nombre   
